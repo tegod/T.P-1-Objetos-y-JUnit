@@ -17,13 +17,15 @@ public class Concurso {
     }
 
     public void verificarFueraDeFecha(LocalDate fechaActual) {
-        if (fechaActual.isBefore(fechaFinInscripcion) && fechaActual.isAfter(fechaInicInscripcion)) {
+        if (fechaActual.isAfter(fechaFinInscripcion) || fechaActual.isBefore(fechaInicInscripcion)) {
             throw new RuntimeException("Inscripcion fuera de fecha, no se pudo realizar");
         }
     }
 
-    public void insertarParticipante(Participante participante) {
+    public void insertarParticipante(Participante participante, LocalDate fechaActual) {
+        /* Esta linea debe de ser eliminada de forma temporal en pos de realizar los test
         LocalDate fechaActual =  LocalDate.now();
+         */
         verificarFueraDeFecha(fechaActual);
 
         if (fechaActual.isEqual(fechaInicInscripcion)) {

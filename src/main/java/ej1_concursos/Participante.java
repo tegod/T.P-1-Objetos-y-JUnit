@@ -10,14 +10,12 @@ public class Participante {
         this.apellido = apellido;
     }
 
-    public Participante(String nombre, String apellido, int puntuacion) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.puntuacion = puntuacion;
+    public int getPuntuacion() {
+        return puntuacion;
     }
 
     public void mostrarPuntos() {
-        System.out.println("Puntos del/la participante: " + this.puntuacion);
+        System.out.println("Puntos del/la participante: " + getPuntuacion());
     }
 
     public void sumarPuntos(int puntuacion) {
