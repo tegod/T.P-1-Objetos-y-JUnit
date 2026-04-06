@@ -1,6 +1,5 @@
 package ej2_restaurante;
 
-import ej1_concursos.Participante;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +10,12 @@ public class PedidoTest {
     private Bebida bebida;
     private PlatoPrincipal platoPrincipal;
     private Tarjeta tarjeta;
+    private FakeCalculoTotal calculoTotal;
 
     @BeforeEach
     public void setUp() {
-        pedido = new Pedido();
+        calculoTotal = new FakeCalculoTotal();
+        pedido = new Pedido(calculoTotal);
         bebida = new Bebida("coca",25);
         pedido.agregarBebida(bebida);
         bebida = new Bebida("agua",15);
@@ -28,16 +29,16 @@ public class PedidoTest {
     @Test
     public void testPagoConVisa() {
         tarjeta = new Visa();
-        assertEquals(78, pedido.calCularCostoPedido(tarjeta));
+        assertEquals(78, pedido.calcularCostoPedido(tarjeta));
     }
     @Test
     public void testPagoConMastercard() {
         tarjeta = new Mastercard();
-        assertEquals(80, pedido.calCularCostoPedido(tarjeta));
+        assertEquals(80, pedido.calcularCostoPedido(tarjeta));
     }
     @Test
     public void testPagoConComarcaPlus() {
         tarjeta = new ComarcaPlus();
-        assertEquals(72, pedido.calCularCostoPedido(tarjeta));
+        assertEquals(72, pedido.calcularCostoPedido(tarjeta));
     }
 }

@@ -10,24 +10,36 @@ import java.time.LocalDate;
 public class ConcursoTest {
     private Concurso concurso;
     private Participante participante;
+    private FakeInscripcion participantesAnotados;
+    private FakeMail mail;
 
     @BeforeEach
     public void setUp() {
-        concurso = new Concurso("Concurso pulseadas", LocalDate.now(),LocalDate.now().plusDays(3));
-        participante = new Participante("Diego", "Ibañez");
+        /* Linea para la creacion e insercion de participantes en un archivo de texto real
+        Instant participantesAnotados = new InscripcionParticipantes("participantesAnotados.txt");
+         */
+        // aca se hace la creacion del fake
+        participantesAnotados = new FakeInscripcion();
+        mail = new FakeMail();
+        concurso = new Concurso("Concurso pulseadas",
+                LocalDate.now(),LocalDate.now().plusDays(3), participantesAnotados, mail);
+        participante = new Participante(41995847,"Diego",
+                "Ibañez", "diegotetobias@gmail.com");
     }
 
     @Test
     public void testInscripcionExitosa() {
         concurso.insertarParticipante(participante, LocalDate.now().plusDays(1));
-        assertEquals(0, participante.getPuntuacion());
+        assertEquals(0, participante.devolverPuntuacion());
+        // asserTrue corrobora si el valor devuelto es nulo o valido, concatenar en caso de que sean vinculantes.
+        assertTrue(participantesAnotados.guardadoFalso);
     }
 
     @Test
     public void testInscripcionEnPrimerDia() {
         concurso.insertarParticipante(participante, LocalDate.now());
-        assertEquals(10, participante.getPuntuacion());
-        participante.mostrarPuntos();
+        assertEquals(10, participante.devolverPuntuacion());
+        System.out.println(participante.devolverPuntuacion());
     }
 
     @Test
