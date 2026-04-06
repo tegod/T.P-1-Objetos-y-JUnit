@@ -1,21 +1,33 @@
 package ej1_concursos;
 
 public class Participante {
+    private int DNI;
     private String nombre;
     private String apellido;
+    private String email;
     private int puntuacion;
 
-    public Participante(String nombre, String apellido) {
+    public Participante(int DNI, String nombre, String apellido, String email) {
+        this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.email = email;
     }
 
-    public int getPuntuacion() {
+    public int devolverPuntuacion() {
         return puntuacion;
     }
 
-    public void mostrarPuntos() {
-        System.out.println("Puntos del/la participante: " + getPuntuacion());
+    public String pasarEmail() {
+        return email;
+    }
+
+    /*public void mostrarPuntos() {
+        System.out.println("Puntos del/la participante: " + devolverPuntuacion());
+    }*/
+
+    public int obtenerDniDeParticipante() {
+        return DNI;
     }
 
     public void sumarPuntos(int puntuacion) {
