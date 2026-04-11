@@ -24,13 +24,13 @@ public class Main {
         //Ocurre un problema con enviar muchos mail por segundo, el Theard.sleep() deja "durmiendo" o pausado
         // x tiempo para intentar evitar esto. No es eficiente pero es un intento para solucionar en base
         // a la disponibilidad
-        /*try {
-            Thread.sleep(5000);
+        try {
+            Thread.sleep(8000);
         }catch (InterruptedException e){
             throw new RuntimeException("Error al esperar otro envio");
         }
         //(no funco)
 
-        concursoConBD.insertarParticipante(participante1, LocalDate.now());*/
+        concursoConBD.insertarParticipante(participante1, LocalDate.now());
     }
 }

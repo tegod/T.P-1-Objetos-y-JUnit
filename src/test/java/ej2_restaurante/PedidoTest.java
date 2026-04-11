@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PedidoTest {
     private Pedido pedido;
@@ -30,6 +31,8 @@ public class PedidoTest {
     public void testPagoConVisa() {
         tarjeta = new Visa();
         assertEquals(78, pedido.calcularCostoPedido(tarjeta));
+        assertTrue(calculoTotal.corroboracionFake);
+        assertEquals(78, calculoTotal.costoTotalFake);
     }
     @Test
     public void testPagoConMastercard() {

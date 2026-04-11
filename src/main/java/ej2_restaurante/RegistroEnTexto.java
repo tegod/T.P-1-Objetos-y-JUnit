@@ -11,7 +11,7 @@ public class RegistroEnTexto implements RegistroTotal {
     public RegistroEnTexto(String ubicacionDeArchivo) {this.ubicacionDeArchivo = ubicacionDeArchivo; }
 
     @Override
-    public void GuardarCuenta(double costoTotal) {
+    public void guardarCuenta(double costoTotal) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();
 

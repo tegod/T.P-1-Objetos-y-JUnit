@@ -1,10 +1,12 @@
 package ej2_restaurante;
 
 public class FakeCalculoTotal implements RegistroTotal {
-    public boolean totalFalso = false;
+    public boolean corroboracionFake = false;
 
+    public double costoTotalFake;
     @Override
-    public void GuardarCuenta(double costoTotal) {
-        this.totalFalso = true;
+    public void guardarCuenta(double costoTotal) {
+        this.corroboracionFake = true;
+        this.costoTotalFake = costoTotal;
     }
 }

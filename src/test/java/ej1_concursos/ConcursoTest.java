@@ -33,6 +33,9 @@ public class ConcursoTest {
         assertEquals(0, participante.devolverPuntuacion());
         // asserTrue corrobora si el valor devuelto es nulo o valido, concatenar en caso de que sean vinculantes.
         assertTrue(participantesAnotados.guardadoFalso);
+        assertEquals(LocalDate.now().plusDays(1), participantesAnotados.fechaFake);
+        assertEquals(41995847, participantesAnotados.id_ParticipanteFake);
+        assertEquals(0, participantesAnotados.id_ConcursoFake);
     }
 
     @Test

@@ -63,6 +63,6 @@ public class Pedido {
     }
 
     public void guardarDatos(double costoTotal) {
-        registroTotal.GuardarCuenta(costoTotal);
+        registroTotal.guardarCuenta(costoTotal);
     }
 }

@@ -12,9 +12,14 @@ public class RegistroEnJDBC implements RegistroTotal {
     private String user = "root";
     private String password = "12345678";
 
+    /*public RegistroEnJDBC(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }*/
 
     @Override
-    public void GuardarCuenta(double costoTotal) {
+    public void guardarCuenta(double costoTotal) {
         String sql = "INSERT INTO registro_ventas (fecha, costoTotal) VALUES (?, ?)";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();
